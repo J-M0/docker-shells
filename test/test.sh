@@ -14,14 +14,9 @@ function check_shell
     fi
 }
 
+shells=(sh csh tcsh bash ksh fish zsh ash dash heirloom-sh)
+
 echo "Checking for shells..."
-check_shell "sh"
-check_shell "csh"
-check_shell "tcsh"
-check_shell "bash"
-check_shell "ksh"
-check_shell "fish"
-check_shell "zsh"
-check_shell "ash"
-check_shell "dash"
-check_shell "heirloom_sh"
+for shell in "${shells[@]}"; do
+    check_shell "$shell"
+done
