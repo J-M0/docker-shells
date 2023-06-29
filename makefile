@@ -12,9 +12,9 @@ endif
 test: build
 ifndef BUILD_NUM
 	$(warning No build number is defined, testing 'latest')
-	docker run dwmkerr/shells:latest bash test.sh
+	docker run dwmkerr/shells:latest /test.sh
 else
-	docker run dwmkerr/shells:$(BUILD_NUM) bash test.sh
+	docker run dwmkerr/shells:$(BUILD_NUM) /test.sh
 endif
 
 # Deploy the images to the Docker Hub. Assumes you are logged in!

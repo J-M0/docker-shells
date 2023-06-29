@@ -1,3 +1,4 @@
+#!/bin/bash
 # Bomb if anything fails.
 set -e
 
