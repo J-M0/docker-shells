@@ -8,34 +8,35 @@
 # - ksh
 # - zsh
 # - fish
-FROM debian:bullseye-slim
+FROM debian:bullseye as builder
 
 # Some metadata.
 MAINTAINER Dave Kerr <github.com/dwmkerr>
 
-# Install pstree (useful for explicitly showing the current shell!)
-RUN apt-get update -y
-RUN apt-get install -y psmisc
-
 # Install tools we'll need to compile shells.
-RUN apt-get install -y make gcc
+RUN apt-get update -y && apt-get install -y build-essential
 
-# Install a bunch o shells.
-RUN apt-get install -y \
+# Add the heirloom shell code, then compile it.
+ADD heirloom-sh-050706.tar.bz2 /build
+WORKDIR /build/heirloom-sh-050706
+RUN make
+
+FROM debian:bullseye-slim
+
+COPY --from=builder /build/heirloom-sh-050706/sh /bin/heirloom-sh
+
+RUN apt-get update && apt-get install -y \
+    # Install pstree (useful for explicitly showing the current shell!)
+    psmisc \
+    # Install a bunch o shells.
     csh \
     tcsh \
     ksh \
     zsh \
     fish \
     ash \
-    dash
+    dash \
+    && rm -r /var/lib/apt/lists/*
 
-# Add the test script.
-COPY ./test/test.sh ./test.sh
-RUN chmod +x ./test.sh
-
-# Add the heirloom shell code, then compile it.
-COPY heirloom-sh-050706.tar.bz2 /tmp/heirloom-sh-050706.tar.bz2
-RUN tar -jxvf /tmp/heirloom-sh-050706.tar.bz2 -C /tmp/
-RUN cd /tmp/heirloom-sh-050706 && make
-RUN cp /tmp/heirloom-sh-050706/sh /bin/heirloom-sh
+# # Add the test script.
+ADD ./test/test.sh .
