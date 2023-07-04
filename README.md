@@ -4,8 +4,8 @@
 
 A simple Debian Stretch based image with all common shells pre-installed:
 
-```bash
-docker run -it dwmkerr/shells
+```shellsession
+$ docker run -it dwmkerr/shells
 root@c80cd43429f5:/# cat /etc/shells
 # /etc/shells: valid login shells
 /bin/sh
@@ -28,7 +28,7 @@ This image also includes [the Heirloom Shell](https://heirloom.sourceforge.net/s
 
 You can see how shells are organised with this command:
 
-```bash
+```shellsession
 root@2ef086450728:/# ls -l /bin/*sh*
 lrwxrwxrwx 1 root root       4 Jan 24  2017 /bin/ash -> dash
 -rwxr-xr-x 1 root root 1099016 May 15  2017 /bin/bash
