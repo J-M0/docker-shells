@@ -2,7 +2,7 @@
 
 [![Docker Hub Badge](https://dockeri.co/image/dwmkerr/shells)](https://registry.hub.docker.com/u/dwmkerr/shells/)
 
-A simple Debian Stretch based image with all common shells pre-installed:
+A simple Debian Bullseye based image with all common shells pre-installed:
 
 ```shellsession
 $ docker run -it dwmkerr/shells
