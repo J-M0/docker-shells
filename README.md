@@ -1,6 +1,6 @@
 # docker-shells [![CircleCI](https://circleci.com/gh/dwmkerr/docker-shells.svg?style=shield)](https://circleci.com/gh/dwmkerr/docker-shells) [![GuardRails badge](https://badges.production.guardrails.io/dwmkerr/docker-shells.svg)](https://www.guardrails.io)
 
-[![Docker Hub Badge](http://dockeri.co/image/dwmkerr/shells)](https://registry.hub.docker.com/u/dwmkerr/shells/)
+[![Docker Hub Badge](https://dockeri.co/image/dwmkerr/shells)](https://registry.hub.docker.com/u/dwmkerr/shells/)
 
 A simple Debian Stretch based image with all common shells pre-installed:
 
@@ -24,7 +24,7 @@ root@c80cd43429f5:/# cat /etc/shells
 
 Used to quickly demo shell features, as part of my [effective-shell](https://github.com/dwmkerr/effective-shell) series.
 
-This image also includes [the Heirloom Shell](http://heirloom.sourceforge.net/sh.html), which is an open-source port of the _original_ Bourne Shell.
+This image also includes [the Heirloom Shell](https://heirloom.sourceforge.net/sh.html), which is an open-source port of the _original_ Bourne Shell.
 
 You can see how shells are organised with this command:
 
